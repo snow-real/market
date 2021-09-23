@@ -52,7 +52,6 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error('获取权限列表失败')
       }
-      console.log(this.rightsList)
     }
   }
 }

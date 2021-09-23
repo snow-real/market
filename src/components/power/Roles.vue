@@ -82,7 +82,7 @@
               size="mini"
               type="primary"
               icon="el-icon-edit"
-              @click="showEditRole(scope.row.id)"
+              @click="showEditRole(scope.row.id, scope.row)"
               >编辑</el-button
             >
             <el-button
@@ -232,9 +232,8 @@ export default {
       if (res.meta.status !== 200) {
         return this.$message.error('获取角色列表失败')
       }
+      console.log(res.data)
       this.rolelist = res.data
-
-      console.log(this.rolelist)
     },
     // 显示添加用户对话框
     showAddRole () {
@@ -257,7 +256,6 @@ export default {
     // 显示编辑角色对话框
     async showEditRole (id) {
       this.editRoleVisible = true
-      console.log(id)
       const { data: res } = await this.$http.get('roles/' + id)
       if (res.meta.status !== 200) return this.$message.error('获取角色信息失败')
       this.editRoleForm = res.data
