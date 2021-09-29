@@ -280,6 +280,7 @@ export default {
         return this.$message.error('获取商品分类失败')
       }
       this.catelist = res.data
+      console.log(this.catelist)
       this.$message.success('获取商品分类成功')
     },
     // 级联选择框选中项变化监听
@@ -289,7 +290,6 @@ export default {
     // Tab页签点击事件的处理函数
     handleTabClick () {
       this.getParamsData()
-      console.log(this.activeName)
     },
     // 获取参数的列表数据
     async getParamsData () {
@@ -312,9 +312,7 @@ export default {
         item.inputVisible = false
         // 文本框中输入的值
         item.inputValue = ''
-        console.log(item)
       })
-      // console.log(res.data)
       if (this.activeName === 'many') {
         this.manyTableData = res.data
         console.log(this.manyTableData)
